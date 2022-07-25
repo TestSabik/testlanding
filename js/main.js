@@ -76,14 +76,14 @@ async function showAddress() {
         const leaf = keccak256(window.userAddress);
         proof = tree.getProof(leaf);
         console.log(tree.getHexRoot());
-        console.log(tree.verify(proof, leaf, root));
+        //console.log(tree.verify(proof, leaf, root));
         window.proof = tree.getHexProof(leaf);  
         isEligibleForWl = true;    
     }
     
 
     const contract = new window.web3.eth.Contract(ABI,CONTRACT_ADDRESS);
-    console.log(contract);    
+    //console.log(contract);    
     totalSupply = await contract.methods.totalSupply().call({ from: window.userAddress });
     totalBurned = await contract.methods.totalBurned().call({ from: window.userAddress });
     totalSupply = parseInt(totalSupply) + parseInt(totalBurned);
