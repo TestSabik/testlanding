@@ -432,7 +432,7 @@ async function showAddress() {
         const leaf = keccak256(window.userAddress);
         proof = tree.getProof(leaf);
         console.log(tree.getHexRoot());
-        //console.log(tree.verify(proof, leaf, root));
+        console.log(tree.verify(proof, leaf, root));
         window.proof = tree.getHexProof(leaf);  
         isEligibleForWl = true;    
     }
