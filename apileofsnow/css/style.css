@@ -1,0 +1,9 @@
+body {
+    background: url(../images/apileofsnow.gif);
+    background-color: #112B64;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text-lightblue {
+    color: #2B6CB0;
+}
