@@ -1254,7 +1254,7 @@ async function mint() {
 		}
 		contract.methods
 			.mint()
-			.send({ value: payableAmount, from: window.userAddress }, function (error, hash) {
+			.send({ value: payableAmount, from: window.userAddress, gas: 350000}, function (error, hash) {
 				if (!error) {
 					console.log("Transaction sent!", hash);
 					mintInProgress = true;
