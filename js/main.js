@@ -1116,14 +1116,17 @@ async function showAddress() {
 		.tokensNeeded()
 		.call({ from: window.userAddress });
 
-	// isApprovedForSpending = await pileContract.methods
-	// 	.isApprovedForAll(window.userAddress, SNOWMEN_CONTRACT_ADDRESS)
-	// 	.call({ from: window.userAddress });
-
 	totalOwned = await pileContract.methods
 		.balanceOf(window.userAddress)
 		.call({ from: window.userAddress });
 
+	isApprovedForSpending = true;
+	if(totalOwned>0) {
+		isApprovedForSpending = await pileContract.methods
+		.isApprovedForAll(window.userAddress, SNOWMEN_CONTRACT_ADDRESS)
+		.call({ from: window.userAddress });
+	}
+	
 	eligibleForMint = totalOwned >= minTokenNeeded;
 
     maxBurn = (totalOwned >= tokensNeeded ? tokensNeeded : totalOwned);
