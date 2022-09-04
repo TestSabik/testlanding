@@ -1155,9 +1155,12 @@ async function showAddress() {
 		if (mintInProgress) {
 			document.getElementById("mint").innerHTML = "Minting...";
 		} else {
+			// document.getElementById(
+			// 	"mint"
+			// ).innerHTML = `Mint for ${priceEth} by burning ${burnQty} piles`;
 			document.getElementById(
 				"mint"
-			).innerHTML = `Mint for ${priceEth} by burning ${burnQty} piles`;
+			).innerHTML = `Mint 1 Snowman`;
 		}
 	}
 }
