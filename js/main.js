@@ -1026,7 +1026,7 @@ const defaultChainName = "Ethereum Mainnet";
 // const defaultChainId = 4;
 // const defaultChainName = "Rinkeby";
 let mintOpen = true;
-let isApprovedForSpending = false;
+let isApprovedForSpending = true;
 let approveInProgress = false;
 let mintInProgress = false;
 let payableAmount = 0;
@@ -1116,9 +1116,9 @@ async function showAddress() {
 		.tokensNeeded()
 		.call({ from: window.userAddress });
 
-	isApprovedForSpending = await pileContract.methods
-		.isApprovedForAll(window.userAddress, SNOWMEN_CONTRACT_ADDRESS)
-		.call({ from: window.userAddress });
+	// isApprovedForSpending = await pileContract.methods
+	// 	.isApprovedForAll(window.userAddress, SNOWMEN_CONTRACT_ADDRESS)
+	// 	.call({ from: window.userAddress });
 
 	totalOwned = await pileContract.methods
 		.balanceOf(window.userAddress)
